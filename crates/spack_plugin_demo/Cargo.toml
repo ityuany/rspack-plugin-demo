@@ -1,0 +1,38 @@
+[package]
+authors.workspace       = true
+categories.workspace    = true
+description             = "Rspack node builder testing"
+documentation.workspace = true
+edition.workspace       = true
+homepage.workspace      = true
+license.workspace       = true
+name                    = "spack_plugin_demo"
+publish                 = false
+repository.workspace    = true
+version                 = "0.2.0"
+
+
+# [package.metadata.cargo-shear]
+# `napi-derive` uses absolute path to `napi`
+# ignored = ["napi"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+plugin = ["rspack_binding_builder/plugin"]
+
+[dependencies]
+rspack_binding_builder        = {workspace = true}
+rspack_binding_builder_macros = {workspace = true}
+
+rspack_core  = {workspace = true}
+rspack_error = {workspace = true}
+rspack_napi  = {workspace = true}
+
+napi        = { workspace = true }
+napi-derive = { workspace = true }
+napi-derive-backend = { workspace = true }
+
+[build-dependencies]
+rspack_binding_build = { workspace = true }
